@@ -1,40 +1,40 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MiracleLandCrossPlatform.AdminControlPanel"
-             >
+             x:Class="MiracleLandCrossPlatform.AdminControlPanel">
+
     <ScrollView>
         <StackLayout Padding="20">
-            <!-- DataGridView -->
-            <!-- Since .NET MAUI does not have a DataGridView, we can use a ListView instead -->
+            <!-- ListView for Products -->
             <ListView x:Name="ProductListView" 
                       ItemsSource="{Binding Products}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding ID}" />
-                                <Label Text="{Binding Name}" />
-                                <Label Text="{Binding Price}" />
-                                <Label Text="{Binding Quantity}" />
-                                <Label Text="{Binding Info}" />
+                                <!-- Display the image -->
+                                <Image Source="{Binding Pimg}" HeightRequest="50" WidthRequest="50" Aspect="AspectFit" />
+
+                                <!-- Display other product information with margin -->
+                                <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
+                                    <Label Text="{Binding Pid}" />
+                                    <Label Text="{Binding Pname}" />
+                                    <Label Text="{Binding Pprice}" />
+                                    <Label Text="{Binding Pquantity}" />
+                                    <Label Text="{Binding Pinfo}" />
+                                </StackLayout>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-
-            <StackLayout Orientation="Horizontal">
-            </StackLayout>
-
-            <Entry Placeholder="Product ID" Text="{Binding SelectedProduct.ID}" IsEnabled="False" />
-            <Entry Placeholder="Product Name" Text="{Binding SelectedProduct.Name}" IsEnabled="False" />
-            <Entry Placeholder="Product Price" Text="{Binding SelectedProduct.Price}" IsEnabled="False" />
-            <Entry Placeholder="Product Quantity" Text="{Binding SelectedProduct.Quantity}" IsEnabled="False" />
-            <Editor Placeholder="Product Info" Text="{Binding SelectedProduct.Info}" IsEnabled="False" />
-
-            
+            <!-- Additional UI elements for editing selected product -->
+            <Entry Placeholder="Product ID" Text="{Binding SelectedProduct.Pid}" IsEnabled="False" />
+            <Entry Placeholder="Product Name" Text="{Binding SelectedProduct.Pname}" IsEnabled="False" />
+            <Entry Placeholder="Product Price" Text="{Binding SelectedProduct.Pprice}" IsEnabled="False" />
+            <Entry Placeholder="Product Quantity" Text="{Binding SelectedProduct.Pquantity}" IsEnabled="False" />
+            <Editor Placeholder="Product Info" Text="{Binding SelectedProduct.Pinfo}" IsEnabled="False" />
         </StackLayout>
     </ScrollView>
 </ContentPage>
+ 
