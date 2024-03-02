@@ -1,0 +1,30 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiracleLandCrossPlatform.Register"
+             Title="Register">
+
+    <StackLayout Padding="20">
+        <Label Text="Username" />
+        <Entry x:Name="register_username" MaxLength="128" />
+
+        <Label Text="Password" />
+        <Entry x:Name="register_password" MaxLength="32" IsPassword="True" />
+
+        <Label Text="Confirm Password" />
+        <Entry x:Name="register_password2" MaxLength="32" IsPassword="True" />
+
+        <Label Text="Email" />
+        <Entry x:Name="register_email" MaxLength="128" />
+
+        <Label Text="Address" />
+        <Entry x:Name="register_address" MaxLength="128" />
+
+        <Label Text="Phone" />
+        <Entry x:Name="register_phone" MaxLength="16" />
+
+        <StackLayout Orientation="Horizontal">
+            <Button x:Name="register_btn" Text="Register" Clicked="register_btn_Click" />
+            <Button x:Name="Cancel" Text="Cancel" Clicked="Cancel_Click" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

@@ -4,17 +4,13 @@
 
     <ScrollView>
         <StackLayout Padding="20">
-            <!-- ListView for Products -->
             <ListView x:Name="ProductListView" 
                       ItemsSource="{Binding Products}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
-                                <!-- Display the image -->
                                 <Image Source="{Binding Pimg}" HeightRequest="50" WidthRequest="50" Aspect="AspectFit" />
-
-                                <!-- Display other product information with margin -->
                                 <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
                                     <Label Text="{Binding Pid}" />
                                     <Label Text="{Binding Pname}" />
@@ -27,8 +23,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
-            <!-- Additional UI elements for editing selected product -->
             <Entry Placeholder="Product ID" Text="{Binding SelectedProduct.Pid}" IsEnabled="False" />
             <Entry Placeholder="Product Name" Text="{Binding SelectedProduct.Pname}" IsEnabled="False" />
             <Entry Placeholder="Product Price" Text="{Binding SelectedProduct.Pprice}" IsEnabled="False" />

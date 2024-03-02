@@ -31,11 +31,20 @@
                      IsPassword="True"
                      />
 
-            <Button
+            <StackLayout Orientation="Horizontal">
+                <Button
                 x:Name="LoginBtn"
                 Text="Login" 
                 Clicked="Login"
                 WidthRequest="150" />
+
+                <Button
+                x:Name="RegisterBtn"
+                Text="Register"
+                Clicked="RegisterClick"
+                WidthRequest="150" />
+
+            </StackLayout>
         </VerticalStackLayout>
     </ScrollView>
 
