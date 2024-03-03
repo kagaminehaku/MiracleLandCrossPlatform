@@ -2,6 +2,7 @@
 using DTOCore;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace BUS
 {
@@ -11,6 +12,12 @@ namespace BUS
         {
             var dalproduct = new DALproduct();
             return dalproduct.GetAllProduct();
+        }
+
+        public async Task<List<Product>> GetAllProductAsync()
+        {
+            var dalproduct = new DALproduct();
+            return await dalproduct.GetAllProductAsync();
         }
 
         public string AddNewProduct(string newpname, int newpprice, int newpquantity, string newpinfo, string newpimg)

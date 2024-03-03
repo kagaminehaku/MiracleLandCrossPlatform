@@ -16,6 +16,14 @@ namespace DAL
             }
         }
 
+        public async Task<List<Product>> GetAllProductAsync()
+        {
+            using (var dbContext = new TsmgContext())
+            {
+                return await dbContext.Products.AsNoTracking().ToListAsync();
+            }
+        }
+
         public Product GetProductByID(int pid)
         {
             using (var dbContext = new TsmgContext())

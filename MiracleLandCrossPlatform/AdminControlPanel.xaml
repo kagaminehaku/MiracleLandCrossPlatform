@@ -1,33 +1,34 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MiracleLandCrossPlatform.AdminControlPanel">
-
+             x:Class="MiracleLandCrossPlatform.AdminControlPanel"
+             NavigationPage.HasBackButton="false">
     <ScrollView>
-        <StackLayout Padding="20">
+        <StackLayout Padding="3">
+            <StackLayout Orientation="Horizontal" Margin="10,10,10,10">
+                <Label Text="ID" FontAttributes="Bold" Margin="0,0,20,0"/>
+                <Label Text="Preview" FontAttributes="Bold" Margin="0,0,30,0" />
+                <Label Text="Name" FontAttributes="Bold" Margin="0,0,140,0" />
+                <Label Text="Price" FontAttributes="Bold" Margin="0,0,10,0" />
+                <Label Text="Quantity" FontAttributes="Bold" Margin="0,0,10,0" />
+            </StackLayout>
             <ListView x:Name="ProductListView" 
                       ItemsSource="{Binding Products}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
-                                <Image Source="{Binding Pimg}" HeightRequest="50" WidthRequest="50" Aspect="AspectFit" />
-                                <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
-                                    <Label Text="{Binding Pid}" />
-                                    <Label Text="{Binding Pname}" />
-                                    <Label Text="{Binding Pprice}" />
-                                    <Label Text="{Binding Pquantity}" />
-                                    <Label Text="{Binding Pinfo}" />
+                                <Label Text="{Binding Pid}" Margin="10,10,10,10" />
+                                <StackLayout Orientation="Horizontal" Margin="10,10,10,10" Spacing="10">
+                                    <Image Source="{Binding Pimg}" HeightRequest="70" WidthRequest="70" Aspect="AspectFit" />
+                                    <Label Text="{Binding Pname}" Margin="0,0,130,0" />
+                                    <Label Text="{Binding Pprice}" Margin="0,0,20,0" />
+                                    <Label Text="{Binding Pquantity}" Margin="0,0,10,0" />
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Entry Placeholder="Product ID" Text="{Binding SelectedProduct.Pid}" IsEnabled="False" />
-            <Entry Placeholder="Product Name" Text="{Binding SelectedProduct.Pname}" IsEnabled="False" />
-            <Entry Placeholder="Product Price" Text="{Binding SelectedProduct.Pprice}" IsEnabled="False" />
-            <Entry Placeholder="Product Quantity" Text="{Binding SelectedProduct.Pquantity}" IsEnabled="False" />
-            <Editor Placeholder="Product Info" Text="{Binding SelectedProduct.Pinfo}" IsEnabled="False" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

@@ -17,7 +17,7 @@
                 Text="Miracle Land - Angel for your soul"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
-            
+
             <Label Text="Username:" />
 
             <Entry x:Name="UsernameTextBox"
@@ -31,7 +31,8 @@
                      IsPassword="True"
                      />
 
-            <StackLayout Orientation="Horizontal">
+            <!-- StackLayout for buttons with spacing -->
+            <StackLayout Orientation="Horizontal" Spacing="50">
                 <Button
                 x:Name="LoginBtn"
                 Text="Login" 
@@ -43,6 +44,8 @@
                 Text="Register"
                 Clicked="RegisterClick"
                 WidthRequest="150" />
+
+                <ActivityIndicator x:Name="LoginActivityIndicator" IsRunning="False" IsVisible="False" />
 
             </StackLayout>
         </VerticalStackLayout>

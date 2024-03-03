@@ -22,7 +22,7 @@
         <Label Text="Phone" />
         <Entry x:Name="register_phone" MaxLength="16" />
 
-        <StackLayout Orientation="Horizontal">
+        <StackLayout Orientation="Horizontal" Spacing="200">
             <Button x:Name="register_btn" Text="Register" Clicked="register_btn_Click" />
             <Button x:Name="Cancel" Text="Cancel" Clicked="Cancel_Click" />
         </StackLayout>
