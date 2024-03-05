@@ -14,10 +14,10 @@ namespace MiracleLandCrossPlatform
         {
             InitializeComponent();
             viewModel = new ProductViewModel();
-            InitializeTestData();
+            InitializeData();
         }
 
-        private async void InitializeTestData()
+        private async void InitializeData()
         {
             await viewModel.LoadProductsAsync();
 

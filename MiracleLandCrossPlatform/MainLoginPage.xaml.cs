@@ -31,7 +31,8 @@ namespace MiracleLandCrossPlatform
             if (user == null)
                 {
                     await DisplayAlert("Error !", "Invalid username or password.", "OK");
-                }
+                    LoginBtn.IsEnabled = true;
+            }
             else if (user.Type == "admin")
                 {
                     AdminBehavior(user);

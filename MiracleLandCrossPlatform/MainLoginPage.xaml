@@ -30,8 +30,6 @@
                      Placeholder="Enter your password"
                      IsPassword="True"
                      />
-
-            <!-- StackLayout for buttons with spacing -->
             <StackLayout Orientation="Horizontal" Spacing="50">
                 <Button
                 x:Name="LoginBtn"

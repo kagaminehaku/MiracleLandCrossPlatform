@@ -7,9 +7,9 @@
             <StackLayout Orientation="Horizontal" Margin="10,10,10,10">
                 <Label Text="ID" FontAttributes="Bold" Margin="0,0,20,0"/>
                 <Label Text="Preview" FontAttributes="Bold" Margin="0,0,30,0" />
-                <Label Text="Name" FontAttributes="Bold" Margin="0,0,140,0" />
-                <Label Text="Price" FontAttributes="Bold" Margin="0,0,10,0" />
-                <Label Text="Quantity" FontAttributes="Bold" Margin="0,0,10,0" />
+                <Label Text="Name" FontAttributes="Bold" Margin="0,0,10,0" />
+                <Label Text="Price" FontAttributes="Bold" Margin="140,0,10,0" />
+                <Label Text="Quantity" FontAttributes="Bold" Margin="50,0,0,0" />
             </StackLayout>
             <ListView x:Name="ProductListView" 
                       ItemsSource="{Binding Products}">
@@ -20,8 +20,8 @@
                                 <Label Text="{Binding Pid}" Margin="10,10,10,10" />
                                 <StackLayout Orientation="Horizontal" Margin="10,10,10,10" Spacing="10">
                                     <Image Source="{Binding Pimg}" HeightRequest="70" WidthRequest="70" Aspect="AspectFit" />
-                                    <Label Text="{Binding Pname}" Margin="0,0,130,0" />
-                                    <Label Text="{Binding Pprice}" Margin="0,0,20,0" />
+                                    <Label Text="{Binding Pname}" Margin="0,0,0,0" />
+                                    <Label Text="{Binding Pprice}" Margin="130,0,20,0" />
                                     <Label Text="{Binding Pquantity}" Margin="0,0,10,0" />
                                 </StackLayout>
                             </StackLayout>
