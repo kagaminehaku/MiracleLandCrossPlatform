@@ -9,12 +9,14 @@ namespace MiracleLandCrossPlatform
     {
         public ObservableCollection<Product> Products { get; set; }
         private ProductViewModel viewModel;
+        private UserAccount session;
 
-        public AdminControlPanel()
+        public AdminControlPanel(UserAccount user)
         {
             InitializeComponent();
             viewModel = new ProductViewModel();
             InitializeData();
+            session = user;
         }
 
         private async void InitializeData()

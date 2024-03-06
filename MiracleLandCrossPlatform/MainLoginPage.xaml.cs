@@ -10,11 +10,6 @@ namespace MiracleLandCrossPlatform
             InitializeComponent();
         }
 
-        //private void Login(object sender, EventArgs e)
-        //{
-        //    Navigation.PushAsync(new AdminControlPanel());
-        //}
-
         private async void Login(object sender, EventArgs e)
         {
             string username = UsernameTextBox.Text;
@@ -55,42 +50,21 @@ namespace MiracleLandCrossPlatform
 
         private async void AdminBehavior(UserAccount user)
         {
-            //MessageBox.Show($"Welcome {user.Username}!", "Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
             await DisplayAlert("Login success !", $"Welcome {user.Username}", "OK");
-            //var miracleLandAdminUI = new MiracleLandAdminUI(user);
-            //Navigation.PushAsync(new AdminControlPanel());
-            //await Navigation.PushAsync(new AdminControlPanel());
-            App.Current.MainPage = new NavigationPage(new AdminControlPanel());
+            App.Current.MainPage = new NavigationPage(new AdminControlPanel(user));
             LoginBtn.IsEnabled=true;
-            //miracleLandAdminUI.FormClosed += (s, args) => this.Show();
-            //miracleLandAdminUI.Show();
-            //this.Hide();
         }
 
         private async void CustomerBehavior(UserAccount user)
         {
-            //MessageBox.Show($"Welcome {user.Username}!", "Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //await DisplayAlert("Login success !", $"Welcome {user.Username}", "OK");
-            //var miracleLandMainUI = new MiracleLandMainUI(user);
-            //await Navigation.PushAsync(new NewContent1());
-            //LoginBtn.IsEnabled = true;
-            //miracleLandMainUI.FormClosed += (s, args) => this.Show();
-            //miracleLandMainUI.Show();
-            //this.Hide();
-
-            // Show a success message after navigation
             await DisplayAlert("Login success !", $"Welcome {user.Username}", "OK");
-
-            // Enable the login button
+            App.Current.MainPage = new NavigationPage(new Customer(user));
             LoginBtn.IsEnabled = true;
         }
 
         private void GuestBehavior(UserAccount user)
         {
-            //var miracleLandMainUI = new MiracleLandMainUI(null);
-            //miracleLandMainUI.FormClosed += (s, args) => this.Show();
-            //miracleLandMainUI.Show();
-            //this.Hide();
+
         }
 
 

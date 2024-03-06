@@ -1,9 +1,13 @@
+using DTOCore;
+
 namespace MiracleLandCrossPlatform;
 
 public partial class Customer : ContentPage
 {
-	public Customer()
+	private UserAccount session;
+	public Customer(UserAccount user)
 	{
 		InitializeComponent();
+		session = user;
 	}
 }
