@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace DTOCore;
 
@@ -19,15 +21,14 @@ public partial class TsmgContext : DbContext
 
     public virtual DbSet<Product> Products { get; set; }
 
+    public virtual DbSet<ShoppingCart> ShoppingCarts { get; set; }
+
     public virtual DbSet<UserAccount> UserAccounts { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#pragma warning disable CS1030 // #warning directive
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        //=> optionsBuilder.UseSqlServer("Server=34.147.198.164;Database=TSMG;user id=sas;password=17102003;TrustServerCertificate=True");
         => optionsBuilder.UseSqlServer("Server=.;Database=TSMG;user id=sa;password=17102003;TrustServerCertificate=True");
-#pragma warning restore CS1030 // #warning directive
-
+    //=> optionsBuilder.UseSqlServer("Server=34.147.198.164;Database=TSMG;user id=sas;password=17102003;TrustServerCertificate=True");
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Order>(entity =>
@@ -87,6 +88,27 @@ public partial class TsmgContext : DbContext
                 .HasColumnName("pname");
             entity.Property(e => e.Pprice).HasColumnName("pprice");
             entity.Property(e => e.Pquantity).HasColumnName("pquantity");
+        });
+
+        modelBuilder.Entity<ShoppingCart>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("shopping_cart");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Pid).HasColumnName("pid");
+            entity.Property(e => e.Pquantity).HasColumnName("pquantity");
+
+            entity.HasOne(d => d.IdNavigation).WithMany()
+                .HasForeignKey(d => d.Id)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_shopping_cart_user_account");
+
+            entity.HasOne(d => d.PidNavigation).WithMany()
+                .HasForeignKey(d => d.Pid)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_shopping_cart_product");
         });
 
         modelBuilder.Entity<UserAccount>(entity =>
