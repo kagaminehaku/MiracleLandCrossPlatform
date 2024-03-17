@@ -13,5 +13,5 @@ public partial class Order
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 
-    public virtual UserAccount User { get; set; }
+    public virtual UserAccount User { get; set; } = null!;
 }

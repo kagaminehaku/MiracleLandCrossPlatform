@@ -116,6 +116,26 @@ namespace DAL
             }
         }
 
+        public bool UpdateProductQuantityByName(string name, int newquantity)
+        {
+            try
+            {
+                using (var dbContext = new TsmgContext())
+                {
+                    var product = dbContext.Products.FirstOrDefault(u => u.Pname == name);
+                    if (product == null) return false;
+                    product.Pquantity = newquantity;
+                    dbContext.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+        }
+
         public bool RemoveProduct(int id)
         {
             try

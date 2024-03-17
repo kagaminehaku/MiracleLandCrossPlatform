@@ -5,7 +5,7 @@ namespace DAL
 {
     public class DALorders
     {
-        public string AddOrders(int userid, long total)
+        public int AddOrders(int userid, long total)
         {
             try
             {
@@ -19,12 +19,12 @@ namespace DAL
 
                     dbContext.Orders.Add(orders);
                     dbContext.SaveChanges();
-                    return orders.Orderid.ToString();
+                    return orders.Orderid;
                 }
             }
             catch (Exception ex)
             {
-                return $"An error occurred: {ex.GetType().Name} - {ex.Message}\nStack Trace: {ex.StackTrace}";
+                return 0;
             }
         }
     }
