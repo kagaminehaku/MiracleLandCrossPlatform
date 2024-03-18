@@ -20,6 +20,7 @@ namespace MiracleLandCrossPlatform
                 return;
             }
             LoginBtn.IsEnabled = false;
+            RegisterBtn.IsEnabled = false;
             var bLogin = new BUSLogin();
             UserAccount user = bLogin.checkValidLogin(username, userpwd);
 
@@ -27,6 +28,7 @@ namespace MiracleLandCrossPlatform
                 {
                     await DisplayAlert("Error !", "Invalid username or password.", "OK");
                     LoginBtn.IsEnabled = true;
+                    RegisterBtn.IsEnabled = true;
             }
             else if (user.Type == "admin")
                 {

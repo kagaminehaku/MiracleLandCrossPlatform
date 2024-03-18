@@ -1,14 +1,10 @@
-using BUS;
 using DTOCore;
-using Microsoft.IdentityModel.Tokens;
 using MiracleLandCrossPlatform.ViewModel;
-using System.Collections.ObjectModel;
 
 namespace MiracleLandCrossPlatform
 {
     public partial class AdminControlPanel : ContentPage
     {
-        public ObservableCollection<Product> Products { get; set; }
         private ProductViewModel viewModel;
         private UserAccount session;
 
