@@ -7,8 +7,18 @@
     Shell.FlyoutBehavior="Disabled"
     Title="MiracleLandCrossPlatform">
 
-    <ShellContent
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <ShellContent Title="Cats"
+                      ContentTemplate="{DataTemplate local:MainPage}"
+                      Route="MainPage" />
+
+        <ShellContent Title="Dogs"
+                      ContentTemplate="{DataTemplate local:MainPage}"
+                      Route="MainPage" />
+
+        <ShellContent Title="Monkeys"
+                      ContentTemplate="{DataTemplate local:MainPage}"
+                      Route="MainPage" />
+    </TabBar>
 
 </Shell>
