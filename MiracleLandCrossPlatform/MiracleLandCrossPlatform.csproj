@@ -95,6 +95,12 @@
 	  <MauiXaml Update="Customer.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="CustomerPassword.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="CustomerShoppingCart.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Register.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
