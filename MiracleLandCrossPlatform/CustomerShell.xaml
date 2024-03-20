@@ -13,14 +13,14 @@
             <local:Customer />
         </ShellContent>
 
-        <ShellContent Title="Dogs"
-                      Route="MainPage">
-            <local:MainPage />
+        <ShellContent Title="Cart"
+                      Route="CustomerShoppingCart">
+            <local:CustomerShoppingCart />
         </ShellContent>
 
-        <ShellContent Title="Monkeys"
-                      Route="MainPage">
-            <local:MainPage />
+        <ShellContent Title="User Center"
+                      Route="CustomerPassword">
+            <local:CustomerPassword />
         </ShellContent>
     </TabBar>
     

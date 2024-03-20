@@ -22,7 +22,7 @@
                                 <StackLayout Orientation="Horizontal" Margin="10,10,10,10" Spacing="10">
                                     <Image Source="{Binding Pimg}" HeightRequest="70" WidthRequest="70" Aspect="AspectFit" />
                                     <Label Text="{Binding Pname}" Margin="0,0,0,0" />
-                                    <Label Text="{Binding Pprice}" Margin="130,0,20,0" />
+                                    <Label Text="{Binding Pprice}" Margin="120,0,0,0" />
                                     <Label Text="{Binding Pquantity}" Margin="0,0,10,0" />
                                 </StackLayout>
                             </StackLayout>

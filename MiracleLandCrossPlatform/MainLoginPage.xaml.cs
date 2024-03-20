@@ -44,7 +44,6 @@ namespace MiracleLandCrossPlatform
 
 
 
-
         private void RegisterClick (object sender, EventArgs e)
         {
             Navigation.PushAsync(new Register());

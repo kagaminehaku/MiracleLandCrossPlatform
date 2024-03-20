@@ -43,8 +43,6 @@
                 Clicked="RegisterClick"
                 WidthRequest="150" />
 
-                <ActivityIndicator x:Name="LoginActivityIndicator" IsRunning="False" IsVisible="False" />
-
             </StackLayout>
         </VerticalStackLayout>
     </ScrollView>
