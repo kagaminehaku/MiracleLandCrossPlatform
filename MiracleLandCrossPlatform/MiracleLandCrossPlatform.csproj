@@ -80,6 +80,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="CustomerShell.xaml.cs">
+	    <DependentUpon>CustomerShell.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="MainLoginPage.xaml.cs">
 	    <DependentUpon>MainLoginPage.xaml</DependentUpon>
 	  </Compile>

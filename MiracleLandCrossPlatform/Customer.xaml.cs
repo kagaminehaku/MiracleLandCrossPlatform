@@ -1,25 +1,27 @@
 using DTOCore;
 using BUS;
 using MiracleLandCrossPlatform.ViewModel;
+using static MiracleLandCrossPlatform.CustomerShell;
 
-namespace MiracleLandCrossPlatform;
-
-public partial class Customer : ContentPage
+namespace MiracleLandCrossPlatform
 {
-    private ProductViewModel viewModel;
-    private UserAccount session;
-	public Customer(UserAccount user)
-	{
-		InitializeComponent();
-        viewModel = new ProductViewModel();
-        session = user;
-		InitializeData();
-	}
-
-    private async void InitializeData()
+    public partial class Customer : ContentPage
     {
-        await viewModel.LoadProductsAsync();
+        private ProductViewModel viewModel;
+        private UserAccount account;
 
-        ProductListView.ItemsSource = viewModel.Products;
+        public Customer()
+        {
+            InitializeComponent();
+            viewModel = new ProductViewModel();
+            InitializeData();
+            account = UserSession.CurrentUser;
+            UserInfo.Text = account.Username;
+        }
+        private async void InitializeData()
+        {
+            await viewModel.LoadProductsAsync();
+            ProductListView.ItemsSource = viewModel.Products;
+        }
     }
 }

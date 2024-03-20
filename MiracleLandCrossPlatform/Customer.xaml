@@ -30,6 +30,9 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Entry x:Name="UserInfo"
+         IsPassword="False"
+         />
         </StackLayout>
     </ScrollView>
 </ContentPage>

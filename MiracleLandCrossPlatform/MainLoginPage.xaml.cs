@@ -60,7 +60,8 @@ namespace MiracleLandCrossPlatform
         private async void CustomerBehavior(UserAccount user)
         {
             await DisplayAlert("Login success !", $"Welcome {user.Username}", "OK");
-            App.Current.MainPage = new NavigationPage(new Customer(user));
+            //App.Current.MainPage = new NavigationPage(new Customer(user));
+            App.Current.MainPage = new CustomerShell(user);
             LoginBtn.IsEnabled = true;
         }
 
