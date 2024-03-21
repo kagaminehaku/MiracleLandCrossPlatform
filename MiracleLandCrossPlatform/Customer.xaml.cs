@@ -16,7 +16,6 @@ namespace MiracleLandCrossPlatform
             viewModel = new ProductViewModel();
             InitializeData();
             account = UserSession.CurrentUser;
-            UserInfo.Text = account.Username;
         }
         private async void InitializeData()
         {
