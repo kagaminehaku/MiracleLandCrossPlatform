@@ -8,12 +8,11 @@ namespace MiracleLandCrossPlatform
         private ProductViewModel viewModel;
         private UserAccount session;
 
-        public AdminControlPanel(UserAccount user)
+        public AdminControlPanel()
         {
             InitializeComponent();
             viewModel = new ProductViewModel();
             InitializeData();
-            session = user;
         }
 
         private async void InitializeData()

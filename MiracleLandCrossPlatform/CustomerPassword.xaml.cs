@@ -49,4 +49,11 @@ public partial class CustomerPassword : ContentPage
             return;
             }
     }
+
+    private async void LogOutClicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("Logout", "Back to login page.", "OK");
+        session = null;
+        App.Current.MainPage = new MainPage();
+    }
 }

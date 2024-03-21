@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using DTOCore;
 using BUS;
+using System.Windows.Input;
 
 namespace MiracleLandCrossPlatform.ViewModel
 {
@@ -19,6 +20,7 @@ namespace MiracleLandCrossPlatform.ViewModel
             var products = await busproduct.GetAllProductAsync();
             Products = new ObservableCollection<Product>(products);
         }
+
 
     }
 }

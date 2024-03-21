@@ -1,6 +1,4 @@
 ﻿using DTOCore;
-using Microsoft.Identity.Client;
-
 namespace MiracleLandCrossPlatform
 {
     public partial class CustomerShell : Shell

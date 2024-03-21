@@ -42,8 +42,6 @@ namespace MiracleLandCrossPlatform
 
         }
 
-
-
         private void RegisterClick (object sender, EventArgs e)
         {
             Navigation.PushAsync(new Register());
@@ -52,8 +50,9 @@ namespace MiracleLandCrossPlatform
         private async void AdminBehavior(UserAccount user)
         {
             await DisplayAlert("Login success !", $"Welcome {user.Username}", "OK");
-            App.Current.MainPage = new NavigationPage(new AdminControlPanel(user));
-            LoginBtn.IsEnabled=true;
+            App.Current.MainPage = new AdminShell(user);
+            LoginBtn.IsEnabled = true;
+            RegisterBtn.IsEnabled = true;
         }
 
         private async void CustomerBehavior(UserAccount user)
@@ -62,13 +61,8 @@ namespace MiracleLandCrossPlatform
             //App.Current.MainPage = new NavigationPage(new Customer(user));
             App.Current.MainPage = new CustomerShell(user);
             LoginBtn.IsEnabled = true;
+            RegisterBtn.IsEnabled = true;
         }
-
-        private void GuestBehavior(UserAccount user)
-        {
-
-        }
-
 
         private void ResetLoginData()
         {
@@ -76,10 +70,6 @@ namespace MiracleLandCrossPlatform
             PasswordTextBox=null;
         }
 
-        private void Guest_Click(object sender, EventArgs e)
-        {
-           //GuestBehavior(null);
-        }
     }
 
 }
