@@ -23,5 +23,8 @@
             <local:CustomerPassword />
         </ShellContent>
     </TabBar>
-    
+
+    <ShellContent Route="ProductDetail" ContentTemplate="{DataTemplate local:ProductDetail}" />
+
+
 </Shell>

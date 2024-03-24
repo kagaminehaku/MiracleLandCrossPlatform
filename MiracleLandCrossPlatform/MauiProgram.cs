@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using MiracleLandCrossPlatform.ViewModel;
 
 namespace MiracleLandCrossPlatform
 {
@@ -14,6 +15,11 @@ namespace MiracleLandCrossPlatform
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<ProductViewModel>();
+
+            builder.Services.AddTransient<CustomerShell>();
+            builder.Services.AddTransient<AdminShell>();
 
 #if DEBUG
     		builder.Logging.AddDebug();

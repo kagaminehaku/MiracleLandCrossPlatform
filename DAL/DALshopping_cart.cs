@@ -19,6 +19,14 @@ namespace DAL
             }
         }
 
+        public async Task<List<ShoppingCart>> GetAllItemInUserCartAsync(int uid)
+        {
+            using (var dbContext = new TsmgContext())
+            {
+                return await dbContext.ShoppingCarts.Where(cart => cart.Id == uid).ToListAsync();
+            }
+        }
+
         public ShoppingCart GetExistCartItem(int uid, int pid)
         {
             using (var dbContext = new TsmgContext())

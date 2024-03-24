@@ -20,7 +20,5 @@ namespace MiracleLandCrossPlatform.ViewModel
             var products = await busproduct.GetAllProductAsync();
             Products = new ObservableCollection<Product>(products);
         }
-
-
     }
 }

@@ -3,6 +3,7 @@ using DTOCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,6 +15,12 @@ namespace BUS
         {
             var Cart = new DALshopping_cart();
             return Cart.GetAllItemInUserCart(uid);
+        }
+
+        public async Task<List<ShoppingCart>> GetAllCartItemsAsync(int uid)
+        {
+            var Cart = new DALshopping_cart();
+            return await Cart.GetAllItemInUserCartAsync(uid);
         }
 
         public void DeleteCartItem (int uid,int pid) 
