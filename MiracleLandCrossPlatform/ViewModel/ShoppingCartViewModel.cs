@@ -11,13 +11,25 @@ namespace MiracleLandCrossPlatform.ViewModel
 {
     public class ShoppingCartViewModel
     {
-        public ObservableCollection<ShoppingCart> CartsItem { get; set; }
+        public ObservableCollection<Product> CartsItem { get; set; }
 
         public async Task LoadCartsAsync(int uid)
         {
+            var cartproduct = new List<Product>();
+            int cartid = 1;
             var shopping = new BUSshopping_cart();
             var cartlist = await shopping.GetAllCartItemsAsync(uid);
-            CartsItem = new ObservableCollection<ShoppingCart>(cartlist);
+            foreach (ShoppingCart item in cartlist)
+            {
+                var busproduct = new BUSproduct();
+                Product product = busproduct.GetProduct(item.Pid);
+                product.Pid = cartid;
+                product.Pprice = item.Pquantity * product.Pprice;
+                product.Pquantity = item.Pquantity;
+                cartid++;
+                cartproduct.Add(product);
+            }
+            CartsItem = new ObservableCollection<Product>(cartproduct);
         }
     }
 }
