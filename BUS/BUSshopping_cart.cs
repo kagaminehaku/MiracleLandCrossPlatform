@@ -23,6 +23,15 @@ namespace BUS
             return await Cart.GetAllItemInUserCartAsync(uid);
         }
 
+        public void CartClear (int uid)
+        {
+            var usercart = GetAllItemInUserCart(uid);
+            foreach (var item in usercart)
+            {
+                DeleteCartItem(uid,item.Pid);
+            }
+        }
+
         public void DeleteCartItem (int uid,int pid) 
         {
             var cart = new DALshopping_cart();

@@ -14,5 +14,10 @@ namespace MiracleLandCrossPlatform
             public static UserAccount CurrentUser { get; set; }
         }
 
+        private async void CustomerShoppingCart_Appearing(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

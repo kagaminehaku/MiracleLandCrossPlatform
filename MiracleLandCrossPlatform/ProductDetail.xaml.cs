@@ -6,7 +6,7 @@ namespace MiracleLandCrossPlatform;
 [QueryProperty(nameof(pname), nameof(pname))]
 public partial class ProductDetail : ContentPage
 {
-    private readonly UserAccount account;
+    private readonly UserAccount session;
     private Product productdetail;
     public string pname
     {
@@ -15,7 +15,7 @@ public partial class ProductDetail : ContentPage
     public ProductDetail()
 	{
 		InitializeComponent();
-        account = UserSession.CurrentUser;
+        session = UserSession.CurrentUser;
     }
 
     private void LoadProduct(string pname)
@@ -39,7 +39,8 @@ public partial class ProductDetail : ContentPage
         {
             await Application.Current.MainPage.DisplayAlert("Quantity Entered", $"Quantity: {quantity}", "OK");
             var cart = new BUSshopping_cart();
-            cart.AddItemToCart(account.Id,productdetail.Pid,quantity);
+            cart.AddItemToCart(session.Id,productdetail.Pid,quantity);
+            App.Current.MainPage = new CustomerShell(session);
         }
         else
         {

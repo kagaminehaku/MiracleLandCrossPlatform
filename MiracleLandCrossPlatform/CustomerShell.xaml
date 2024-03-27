@@ -24,7 +24,7 @@
         </ShellContent>
     </TabBar>
 
-    <ShellContent Route="ProductDetail" ContentTemplate="{DataTemplate local:ProductDetail}" />
+    <ShellContent Route="ProductDetail" ContentTemplate="{DataTemplate local:ProductDetail}"/>
 
 
 </Shell>
