@@ -3,7 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MiracleLandCrossPlatform.ProductDetail"
              Title="ProductDetail">
-    <VerticalStackLayout>
-        <Entry Placeholder="Enter product name" x:Name="ProductName" />
+    
+        <VerticalStackLayout
+                Padding="30,0"
+                Spacing="25">
+            <Image x:Name="ProductImage" HeightRequest="200" Aspect="AspectFit" />
+            <Entry IsEnabled="False" x:Name="ProductName" WidthRequest="400" />
+            <Entry IsEnabled="False" x:Name="ProductPrice" WidthRequest="400" />
+            <Entry IsEnabled="False" x:Name="ProductQuantity" WidthRequest="400" />
+            <Entry IsEnabled="False" x:Name="ProductInfo" WidthRequest="400" />
+        <StackLayout Orientation="Horizontal" Spacing="50">
+
+            <Button
+        x:Name="AddToCart"
+        Text="Add To Cart"
+        Clicked="AddToCart_Clicked"
+        WidthRequest="150" />
+
+        </StackLayout>
+
     </VerticalStackLayout>
 </ContentPage>

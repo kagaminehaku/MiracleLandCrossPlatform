@@ -97,19 +97,17 @@ namespace DAL
                     {
                         UpdateAddItemQtyInCart (uid, pid , newqty);
                     }
-
-                    var CartItem = new ShoppingCart
+                    if (existingItem == null)
                     {
-                        Id = uid,
-                        Pid = pid,
-                        Pquantity = newqty
-                    };
-                    Console.WriteLine(CartItem.Cartitemid);
-                    Console.WriteLine(CartItem.Id);
-                    Console.WriteLine(CartItem.Pid);
-                    Console.WriteLine(CartItem.Pquantity);
-                    dbContext.ShoppingCarts.Add(CartItem);
-                    dbContext.SaveChanges();
+                        var CartItem = new ShoppingCart
+                        {
+                            Id = uid,
+                            Pid = pid,
+                            Pquantity = newqty
+                        };
+                        dbContext.ShoppingCarts.Add(CartItem);
+                        dbContext.SaveChanges();
+                    }
                 }
             }
             catch (Exception ex)
