@@ -57,6 +57,19 @@ namespace BUS
             }
         }
 
+        public void UpdateQtyForShoppingCart(int uid ,int pid, int qty)
+        {
+            if(qty > 0)
+            {
+                var cart = new DALshopping_cart();
+                cart.UpdateAddItemQtyInShoppingCart(uid, pid, qty);
+            }
+            else if (qty <= 0) 
+            {
+                DeleteCartItem(uid, pid);
+            }
+        }
+
         public void EditItemQtyInCart(int uid, int pid, int newqty)
         {
             var cart = new DALshopping_cart();

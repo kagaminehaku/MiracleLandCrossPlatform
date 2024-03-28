@@ -79,5 +79,11 @@ namespace BUS
             return product.Pid;
         }
 
+        public int GetProductQuantityByName(string name)
+        {
+            var product = GetProductByName(name);
+            return product.Pquantity;
+        }
+
     }
 }

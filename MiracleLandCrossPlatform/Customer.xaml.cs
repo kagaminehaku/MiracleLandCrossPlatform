@@ -28,7 +28,6 @@ namespace MiracleLandCrossPlatform
             Product product = item as Product;
             if (product != null)
             {
-                await DisplayAlert("LMAO", product.Pname.ToString(), "OK");
                 await Shell.Current.GoToAsync($"{nameof(ProductDetail)}?{nameof(ProductDetail.pname)}={product.Pname}");
             }
             ProductListView.SelectedItem = null;

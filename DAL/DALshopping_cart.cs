@@ -52,6 +52,23 @@ namespace DAL
             }
         }
 
+        public void UpdateAddItemQtyInShoppingCart(int uid, int pid, int newqty)
+        {
+            try
+            {
+                using (var dbContext = new TsmgContext())
+                {
+                    var CartItem = dbContext.ShoppingCarts.FirstOrDefault(cart => cart.Id == uid && cart.Pid == pid);
+                    CartItem.Pquantity = newqty;
+                    dbContext.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
         public void EditItemQtyInCart(int uid, int pid, int newqty)
         {
             try
