@@ -156,5 +156,24 @@ namespace DAL
             }
         }
 
+        public bool RemoveProductByName(string name)
+        {
+            try
+            {
+                using (var dbContext = new TsmgContext())
+                {
+                    var product = dbContext.Products.FirstOrDefault(u => u.Pname == name);
+                    if (product == null) return false;
+                    dbContext.Products.Remove(product);
+                    dbContext.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException.ToString());
+                return false;
+            }
+        }
     }
 }

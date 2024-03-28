@@ -18,7 +18,19 @@
     Text="Edit Product"
     Clicked="EditProduct_Clicked"    
     WidthRequest="150" />
-        
+
+            <Button
+    x:Name="SaveChanges"
+    Text="Save Changes"
+    Clicked="SaveChanges_Clicked"
+    IsEnabled="False"
+    WidthRequest="150" />
+
+            <Button
+    x:Name="DeleteProduct"
+    Text="Delete Product"
+    Clicked="DeleteProduct_Clicked"  
+    WidthRequest="150" />
         </StackLayout>
 
     </VerticalStackLayout>
