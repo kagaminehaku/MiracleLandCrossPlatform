@@ -9,6 +9,7 @@ public partial class AdminProductDetail : ContentPage
 {
     private readonly UserAccount session;
     private Product productdetail;
+    private string imagepath;
     public string pname
     {
         set { LoadProduct(value); }
@@ -38,6 +39,7 @@ public partial class AdminProductDetail : ContentPage
         ProductPrice.IsEnabled = true;
         ProductQuantity.IsEnabled = true;
         ProductInfo.IsEnabled = true;
+        ChangeImage.IsEnabled = true;
     }
 
     private async void DeleteProduct_Clicked(object sender, EventArgs e)
@@ -51,7 +53,7 @@ public partial class AdminProductDetail : ContentPage
             {
                 var productAdmin = new BUSproduct();
                 productAdmin.RemoveProductByName(productNameToDelete);
-                App.Current.MainPage = new CustomerShell(session);
+                App.Current.MainPage = new AdminShell(session);
             }
             else
             {
@@ -65,8 +67,64 @@ public partial class AdminProductDetail : ContentPage
         }
     }
 
-    private void SaveChanges_Clicked(object sender, EventArgs e)
+    private async void SaveChanges_Clicked(object sender, EventArgs e)
     {
+        if (imagepath == null)
+        {
+            if (!Int32.TryParse(ProductPrice.Text, out var price))
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "The entered product name does not match the product to be deleted.", "OK");
+            }
+            if (!Int32.TryParse(ProductQuantity.Text, out var quantity))
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "The entered product name does not match the product to be deleted.", "OK");
+            }
+            var busproduct = new BUSproduct();
+            busproduct.EditProduct(productdetail.Pid, ProductName.Text, price, quantity, ProductInfo.Text, productdetail.Pimg);
+            App.Current.MainPage = new AdminShell(session);
+        }
+        if (imagepath !=null)
+        {
+            if (!Int32.TryParse(ProductPrice.Text, out var price))
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "The entered product name does not match the product to be deleted.", "OK");
+            }
+            if (!Int32.TryParse(ProductQuantity.Text, out var quantity))
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "The entered product name does not match the product to be deleted.", "OK");
+            }
+            var uploader = new ImgbbUploader();
+            string imageUrl = await uploader.UploadImageAsync(imagepath);
+            var busproduct = new BUSproduct();
+            busproduct.EditProduct(productdetail.Pid, ProductName.Text, price, quantity, ProductInfo.Text, imageUrl);
+            App.Current.MainPage = new AdminShell(session);
+        }
+    }
 
+    private async void ChangeImage_Clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            var file = await FilePicker.PickAsync(new PickOptions
+            {
+                FileTypes = FilePickerFileType.Images,
+                PickerTitle = "Select Image"
+            });
+
+            if (file != null)
+            {
+                imagepath = file.FullPath;
+                ProductImage.Source = file.FullPath;
+                //await Application.Current.MainPage.DisplayAlert("Image Selected", $"Selected Image Path: {file.FullPath}", "OK");
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Alert", "No image selected.", "OK");
+            }
+        }
+        catch (Exception ex)
+        {
+            await Application.Current.MainPage.DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
+        }
     }
 }

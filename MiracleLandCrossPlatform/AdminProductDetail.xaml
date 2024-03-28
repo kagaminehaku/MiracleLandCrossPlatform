@@ -12,7 +12,6 @@
         <Entry IsEnabled="False" x:Name="ProductQuantity" WidthRequest="400" />
         <Entry IsEnabled="False" x:Name="ProductInfo" WidthRequest="400" />
         <StackLayout Orientation="Horizontal" Spacing="50">
-
             <Button
     x:Name="EditProduct"
     Text="Edit Product"
@@ -26,11 +25,22 @@
     IsEnabled="False"
     WidthRequest="150" />
 
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Spacing="50">
+          
+
             <Button
-    x:Name="DeleteProduct"
-    Text="Delete Product"
-    Clicked="DeleteProduct_Clicked"  
-    WidthRequest="150" />
+x:Name="DeleteProduct"
+Text="Delete Product"
+Clicked="DeleteProduct_Clicked"  
+WidthRequest="150" />
+
+            <Button
+x:Name="ChangeImage"
+Text="Change Image"
+Clicked="ChangeImage_Clicked"
+IsEnabled="False"
+WidthRequest="150" />
         </StackLayout>
 
     </VerticalStackLayout>

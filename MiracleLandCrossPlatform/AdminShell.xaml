@@ -18,5 +18,6 @@
             <local:AdminPassword />
         </ShellContent>
     </TabBar>
+    <ShellContent Route="AdminProductDetail" ContentTemplate="{DataTemplate local:AdminProductDetail}"/>
 
 </Shell>

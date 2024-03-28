@@ -12,7 +12,9 @@
                 <Label Text="Quantity" FontAttributes="Bold" Margin="50,0,0,0" />
             </StackLayout>
             <ListView x:Name="ProductListView" 
-                      ItemsSource="{Binding Products}">
+                      ItemsSource="{Binding Products}"
+                      SelectionMode="Single"
+                      ItemSelected="ProductListView_ItemSelected">
                 <ListView.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="2" Command="{Binding ItemDoubleTappedCommand}" CommandParameter="{Binding .}" />
                 </ListView.GestureRecognizers>

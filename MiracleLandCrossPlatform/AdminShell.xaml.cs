@@ -7,7 +7,8 @@ public partial class AdminShell : Shell
 	{
         UserSession.CurrentUser = user;
         InitializeComponent();
-	}
+        Routing.RegisterRoute(nameof(AdminProductDetail), typeof(AdminProductDetail));
+    }
     public static class UserSession
     {
         public static UserAccount CurrentUser { get; set; }
