@@ -32,7 +32,7 @@ public partial class AdminProductDetail : ContentPage
         BindingContext = product;
     }
 
-    private async void EditProduct_Clicked(object sender, EventArgs e)
+    private void EditProduct_Clicked(object sender, EventArgs e)
     {
         DeleteProduct.IsEnabled = false;
         SaveChanges.IsEnabled = true;
