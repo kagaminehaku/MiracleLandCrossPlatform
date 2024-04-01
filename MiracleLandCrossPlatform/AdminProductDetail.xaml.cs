@@ -1,7 +1,6 @@
 
 using BUS;
 using DTOCore;
-using static MiracleLandCrossPlatform.CustomerShell;
 namespace MiracleLandCrossPlatform;
 [QueryProperty(nameof(pname), nameof(pname))]
 
@@ -73,11 +72,11 @@ public partial class AdminProductDetail : ContentPage
         {
             if (!Int32.TryParse(ProductPrice.Text, out var price))
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "The entered product name does not match the product to be deleted.", "OK");
+                await Application.Current.MainPage.DisplayAlert("Error", "The price is not valid.", "OK");
             }
             if (!Int32.TryParse(ProductQuantity.Text, out var quantity))
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "The entered product name does not match the product to be deleted.", "OK");
+                await Application.Current.MainPage.DisplayAlert("Error", "The qty is not valid.", "OK");
             }
             var busproduct = new BUSproduct();
             busproduct.EditProduct(productdetail.Pid, ProductName.Text, price, quantity, ProductInfo.Text, productdetail.Pimg);
@@ -87,14 +86,21 @@ public partial class AdminProductDetail : ContentPage
         {
             if (!Int32.TryParse(ProductPrice.Text, out var price))
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "The entered product name does not match the product to be deleted.", "OK");
+                await Application.Current.MainPage.DisplayAlert("Error", "The price is not valid.", "OK");
+                return ;
             }
             if (!Int32.TryParse(ProductQuantity.Text, out var quantity))
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "The entered product name does not match the product to be deleted.", "OK");
+                await Application.Current.MainPage.DisplayAlert("Error", "The qty is not valid.", "OK");
+                return;
             }
             var uploader = new ImgbbUploader();
             string imageUrl = await uploader.UploadImageAsync(imagepath);
+            if (imageUrl == null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Upload image error.", "OK");
+                return;
+            }
             var busproduct = new BUSproduct();
             busproduct.EditProduct(productdetail.Pid, ProductName.Text, price, quantity, ProductInfo.Text, imageUrl);
             App.Current.MainPage = new AdminShell(session);
@@ -115,7 +121,6 @@ public partial class AdminProductDetail : ContentPage
             {
                 imagepath = file.FullPath;
                 ProductImage.Source = file.FullPath;
-                //await Application.Current.MainPage.DisplayAlert("Image Selected", $"Selected Image Path: {file.FullPath}", "OK");
             }
             else
             {

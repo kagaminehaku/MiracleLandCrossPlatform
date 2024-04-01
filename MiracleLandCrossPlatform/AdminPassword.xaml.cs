@@ -33,7 +33,6 @@ public partial class AdminPassword : ContentPage
             if (bus2useraccount.UpdatePassword(session.Username.ToString(), NewPasswordEntry.Text))
             {
                 await DisplayAlert("Success", "Session is now expired.", "OK");
-                session = null;
                 App.Current.MainPage = new MainPage();
             }
             else
@@ -52,7 +51,6 @@ public partial class AdminPassword : ContentPage
     private async void LogOutClicked(object sender, EventArgs e)
     {
         await DisplayAlert("Logout", "Back to login page.", "OK");
-        session = null;
         App.Current.MainPage = new MainPage();
     }
 }

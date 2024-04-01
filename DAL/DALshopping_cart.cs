@@ -35,7 +35,7 @@ namespace DAL
             }
         }
 
-        public void UpdateAddItemQtyInCart(int uid, int pid ,int newqty)
+        public async void UpdateAddItemQtyInCart(int uid, int pid ,int newqty)
         {
             try
             {
@@ -48,11 +48,11 @@ namespace DAL
             }
             catch (Exception ex)
             {
-
+                await Application.Current.MainPage.DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
             }
         }
 
-        public void UpdateAddItemQtyInShoppingCart(int uid, int pid, int newqty)
+        public async void UpdateAddItemQtyInShoppingCart(int uid, int pid, int newqty)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-
+                await Application.Current.MainPage.DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
             }
         }
 

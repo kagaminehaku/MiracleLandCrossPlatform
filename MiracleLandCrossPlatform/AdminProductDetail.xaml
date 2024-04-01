@@ -7,9 +7,13 @@
             Padding="30,0"
             Spacing="25">
         <Image x:Name="ProductImage" HeightRequest="200" Aspect="AspectFit" />
+        <Label Text="Product Name" />
         <Entry IsEnabled="False" x:Name="ProductName" WidthRequest="400" />
+        <Label Text="Product Price" />
         <Entry IsEnabled="False" x:Name="ProductPrice" WidthRequest="400" />
+        <Label Text="Product Quantity" />
         <Entry IsEnabled="False" x:Name="ProductQuantity" WidthRequest="400" />
+        <Label Text="Product Info" />
         <Entry IsEnabled="False" x:Name="ProductInfo" WidthRequest="400" />
         <StackLayout Orientation="Horizontal" Spacing="50">
             <Button

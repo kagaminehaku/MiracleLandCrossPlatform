@@ -13,10 +13,16 @@
             <local:AdminControlPanel />
         </ShellContent>
 
+        <ShellContent Title="Add Product"
+       Route="AdminNewProduct">
+            <local:AdminNewProduct />
+        </ShellContent>
+
         <ShellContent Title="User Center"
                       Route="User Center">
             <local:AdminPassword />
         </ShellContent>
+
     </TabBar>
     <ShellContent Route="AdminProductDetail" ContentTemplate="{DataTemplate local:AdminProductDetail}"/>
 

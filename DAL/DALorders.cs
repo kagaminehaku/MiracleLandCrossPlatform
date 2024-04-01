@@ -24,6 +24,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
+                Application.Current.MainPage.DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
                 return 0;
             }
         }

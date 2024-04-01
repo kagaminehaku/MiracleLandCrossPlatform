@@ -93,6 +93,9 @@
 	  <MauiXaml Update="AdminControlPanel.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="AdminNewProduct.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="AdminPassword.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

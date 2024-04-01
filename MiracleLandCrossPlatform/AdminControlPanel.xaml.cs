@@ -6,7 +6,6 @@ namespace MiracleLandCrossPlatform
     public partial class AdminControlPanel : ContentPage
     {
         private ProductViewModel viewModel;
-        private UserAccount session;
 
         public AdminControlPanel()
         {
