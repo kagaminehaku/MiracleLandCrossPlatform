@@ -1,5 +1,6 @@
 ﻿using BUS;
 using DTOCore;
+using System.Net.NetworkInformation;
 namespace MiracleLandCrossPlatform
 {
     public partial class MainPage : ContentPage
@@ -42,9 +43,9 @@ namespace MiracleLandCrossPlatform
 
         }
 
-        private void RegisterClick (object sender, EventArgs e)
+        private async void RegisterClick (object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Register());
+            await Navigation.PushAsync(new Register());
         }
 
         private async void AdminBehavior(UserAccount user)

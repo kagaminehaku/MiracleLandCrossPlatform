@@ -73,10 +73,12 @@ public partial class AdminProductDetail : ContentPage
             if (!Int32.TryParse(ProductPrice.Text, out var price))
             {
                 await Application.Current.MainPage.DisplayAlert("Error", "The price is not valid.", "OK");
+                return;
             }
             if (!Int32.TryParse(ProductQuantity.Text, out var quantity))
             {
                 await Application.Current.MainPage.DisplayAlert("Error", "The qty is not valid.", "OK");
+                return;
             }
             var busproduct = new BUSproduct();
             busproduct.EditProduct(productdetail.Pid, ProductName.Text, price, quantity, ProductInfo.Text, productdetail.Pimg);
