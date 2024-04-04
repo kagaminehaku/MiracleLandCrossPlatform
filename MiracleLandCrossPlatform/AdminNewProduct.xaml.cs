@@ -22,7 +22,17 @@ public partial class AdminNewProduct : ContentPage
                 await Application.Current.MainPage.DisplayAlert("Error", "The price is not valid.", "OK");
                 return;
             }
+            if (price < 0)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "The price is not valid.", "OK");
+                return;
+            }
             if (!Int32.TryParse(ProductQuantity.Text, out var quantity))
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "The qty is not valid.", "OK");
+                return;
+            }
+            if (quantity < 0)
             {
                 await Application.Current.MainPage.DisplayAlert("Error", "The qty is not valid.", "OK");
                 return;

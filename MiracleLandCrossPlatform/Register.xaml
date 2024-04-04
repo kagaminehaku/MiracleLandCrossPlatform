@@ -8,10 +8,10 @@
         <Entry x:Name="register_username" MaxLength="128" />
 
         <Label Text="Password" />
-        <Entry x:Name="register_password" MaxLength="32" IsPassword="True" />
+        <Entry x:Name="register_password" MaxLength="128" IsPassword="True" />
 
         <Label Text="Confirm Password" />
-        <Entry x:Name="register_password2" MaxLength="32" IsPassword="True" />
+        <Entry x:Name="register_password2" MaxLength="128" IsPassword="True" />
 
         <Label Text="Email" />
         <Entry x:Name="register_email" MaxLength="128" />

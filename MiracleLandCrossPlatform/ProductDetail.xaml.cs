@@ -38,6 +38,10 @@ public partial class ProductDetail : ContentPage
         if (int.TryParse(quantityString, out int quantity)&& quantity <= productdetail.Pquantity)
         {
             await Application.Current.MainPage.DisplayAlert("Quantity Entered", $"Quantity: {quantity}", "OK");
+            if (quantity < 0)
+            {
+                return;
+            }
             var cart = new BUSshopping_cart();
             cart.AddItemToCart(session.Id,productdetail.Pid,quantity);
             App.Current.MainPage = new CustomerShell(session);

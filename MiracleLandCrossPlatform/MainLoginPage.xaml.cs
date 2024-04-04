@@ -24,7 +24,6 @@ namespace MiracleLandCrossPlatform
             RegisterBtn.IsEnabled = false;
             var bLogin = new BUSLogin();
             UserAccount user = bLogin.checkValidLogin(username, userpwd);
-
             if (user == null)
                 {
                     await DisplayAlert("Error !", "Invalid username or password.", "OK");
@@ -43,11 +42,6 @@ namespace MiracleLandCrossPlatform
 
         }
 
-        private async void RegisterClick (object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Register());
-        }
-
         private async void AdminBehavior(UserAccount user)
         {
             await DisplayAlert("Login success !", $"Welcome {user.Username}", "OK");
@@ -59,18 +53,15 @@ namespace MiracleLandCrossPlatform
         private async void CustomerBehavior(UserAccount user)
         {
             await DisplayAlert("Login success !", $"Welcome {user.Username}", "OK");
-            //App.Current.MainPage = new NavigationPage(new Customer(user));
             App.Current.MainPage = new CustomerShell(user);
             LoginBtn.IsEnabled = true;
             RegisterBtn.IsEnabled = true;
         }
 
-        private void ResetLoginData()
+        private async void RegisterBtn_Clicked(object sender, EventArgs e)
         {
-            UsernameTextBox=null;
-            PasswordTextBox=null;
+            App.Current.MainPage = new Register();
         }
-
     }
 
 }

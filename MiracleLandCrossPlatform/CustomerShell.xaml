@@ -9,17 +9,20 @@
 
     <TabBar>
         <ShellContent Title="Shopping"
-                      Route="Customer">
+                      Route="Customer"
+                      Icon="shoppingbag.png">
             <local:Customer />
         </ShellContent>
 
         <ShellContent Title="Cart"
-                      Route="CustomerShoppingCart">
+                      Route="CustomerShoppingCart"
+                      Icon="trolley.png">
             <local:CustomerShoppingCart />
         </ShellContent>
 
         <ShellContent Title="User Center"
-                      Route="CustomerPassword">
+                      Route="CustomerPassword"
+                      Icon="user.png">
             <local:CustomerPassword />
         </ShellContent>
     </TabBar>

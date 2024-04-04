@@ -9,17 +9,20 @@
 
     <TabBar>
         <ShellContent Title="Product Manager"
-                      Route="AdminControlPanel">
+                      Route="AdminControlPanel"
+                      Icon="supplychain.png">
             <local:AdminControlPanel />
         </ShellContent>
 
         <ShellContent Title="Add Product"
-       Route="AdminNewProduct">
+       Route="AdminNewProduct"
+                      Icon="addproduct.png">
             <local:AdminNewProduct />
         </ShellContent>
 
-        <ShellContent Title="User Center"
-                      Route="User Center">
+        <ShellContent Title="User Center" 
+                      Route="User Center"
+                      Icon="user.png">
             <local:AdminPassword />
         </ShellContent>
 

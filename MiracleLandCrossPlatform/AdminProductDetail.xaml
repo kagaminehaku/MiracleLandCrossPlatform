@@ -8,13 +8,13 @@
             Spacing="25">
         <Image x:Name="ProductImage" HeightRequest="200" Aspect="AspectFit" />
         <Label Text="Product Name" />
-        <Entry IsEnabled="False" x:Name="ProductName" WidthRequest="400" />
-        <Label Text="Product Price" />
-        <Entry IsEnabled="False" x:Name="ProductPrice" WidthRequest="400" />
+        <Entry IsEnabled="False" x:Name="ProductName" WidthRequest="400" MaxLength="64"/>
+        <Label Text="Product Price"/>
+        <Entry IsEnabled="False" x:Name="ProductPrice" WidthRequest="400" MaxLength="10"/>
         <Label Text="Product Quantity" />
-        <Entry IsEnabled="False" x:Name="ProductQuantity" WidthRequest="400" />
+        <Entry IsEnabled="False" x:Name="ProductQuantity" WidthRequest="400" MaxLength="8" />
         <Label Text="Product Info" />
-        <Entry IsEnabled="False" x:Name="ProductInfo" WidthRequest="400" />
+        <Entry IsEnabled="False" x:Name="ProductInfo" WidthRequest="400" MaxLength="256" />
         <StackLayout Orientation="Horizontal" Spacing="50">
             <Button
     x:Name="EditProduct"
