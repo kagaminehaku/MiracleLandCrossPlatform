@@ -1,5 +1,4 @@
-﻿using System;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
 
 namespace BUS
@@ -18,7 +17,6 @@ namespace BUS
 
                 Buffer.BlockCopy(saltBytes, 0, saltedInput, 0, saltBytes.Length);
                 Buffer.BlockCopy(inputBytes, 0, saltedInput, saltBytes.Length, inputBytes.Length);
-
 
                 byte[] hashBytes = sha512.ComputeHash(saltedInput);
                 StringBuilder builder = new StringBuilder();

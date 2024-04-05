@@ -112,6 +112,12 @@
 	  <MauiXaml Update="Customer.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="CustomerOrderDetail.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="CustomerOrders.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="CustomerPassword.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

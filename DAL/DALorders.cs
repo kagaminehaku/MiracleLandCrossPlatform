@@ -1,5 +1,5 @@
 ﻿using DTOCore;
-using System;
+using Microsoft.EntityFrameworkCore;
 
 namespace DAL
 {
@@ -26,6 +26,23 @@ namespace DAL
             {
                 Application.Current.MainPage.DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
                 return 0;
+            }
+        }
+
+        public async Task<List<Order>> GetAllOrdersByUser(int userid)
+        {
+            try
+            {
+                using (var dbContext = new TsmgContext())
+                {
+                    return await dbContext.Orders.Where(order => order.Userid == userid ).ToListAsync();
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                Application.Current.MainPage.DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
+                return null;
             }
         }
     }

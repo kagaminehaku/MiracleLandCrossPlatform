@@ -20,13 +20,21 @@
             <local:CustomerShoppingCart />
         </ShellContent>
 
+        <ShellContent
+     Title="Orders"
+     Route="CustomerOrders"
+     Icon="order.png">
+            <local:CustomerOrders/>
+        </ShellContent>
+
         <ShellContent Title="User Center"
                       Route="CustomerPassword"
                       Icon="user.png">
             <local:CustomerPassword />
         </ShellContent>
-    </TabBar>
 
+       
+    </TabBar>
     <ShellContent Route="ProductDetail" ContentTemplate="{DataTemplate local:ProductDetail}"/>
 
 

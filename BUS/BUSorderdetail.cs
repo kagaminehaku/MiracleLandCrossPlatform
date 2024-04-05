@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTOCore;
 
 namespace BUS
 {
@@ -9,6 +10,12 @@ namespace BUS
             var dalorderdetail = new DALorderdetail();
             bool addok = dalorderdetail.AddOrderDetail(orderid, pid, quantity);
             return addok;
+        }
+
+        public async Task<List<OrderDetail>> GetAllOrderDetailByOrderId(int orderid)
+        {
+            var dalorderdetail = new DALorderdetail();
+            return await dalorderdetail.GetAllOrderDetailByOrderId(orderid);
         }
     }
 }

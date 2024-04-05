@@ -1,4 +1,6 @@
 ﻿using DAL;
+using DTOCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace BUS
 {
@@ -10,5 +12,12 @@ namespace BUS
             int oid = dalorders.AddOrders(userid, total);
             return oid;
         }
+
+        public async Task<List<Order>> GetAllOrdersByUser (int userid)
+        {
+            var dalorders = new DALorders();
+            return await dalorders.GetAllOrdersByUser(userid);
+        }
+
     }
 }

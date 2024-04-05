@@ -1,4 +1,5 @@
 ﻿using DTOCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace DAL
 {
@@ -25,6 +26,23 @@ namespace DAL
             catch
             {
                 return false;
+            }
+        }
+
+        public async Task<List<OrderDetail>> GetAllOrderDetailByOrderId(int orderid)
+        {
+            try
+            {
+                using (var dbContext = new TsmgContext())
+                {
+                    return await dbContext.OrderDetails.Where(orderdetail => orderdetail.Orderid == orderid).ToListAsync();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Application.Current.MainPage.DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
+                return null;
             }
         }
     }
