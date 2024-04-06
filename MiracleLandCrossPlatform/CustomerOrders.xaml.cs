@@ -22,8 +22,14 @@ public partial class CustomerOrders : ContentPage
         ProductListView.ItemsSource = viewModel.Order;
     }
 
-    private void ProductListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+    private async void ProductListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
-
+        var item = ProductListView.SelectedItem;
+        Order orders = item as Order;
+        if (orders != null)
+        {
+            await Shell.Current.GoToAsync($"{nameof(CustomerOrderDetail)}?{nameof(CustomerOrderDetail.orderid)}={orders.Orderid}");
+        }
+        ProductListView.SelectedItem = null;
     }
 }

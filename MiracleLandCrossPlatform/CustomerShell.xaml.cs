@@ -8,6 +8,7 @@ namespace MiracleLandCrossPlatform
             UserSession.CurrentUser = user;
             InitializeComponent();
             Routing.RegisterRoute(nameof(ProductDetail), typeof(ProductDetail));
+            Routing.RegisterRoute(nameof(CustomerOrderDetail), typeof(CustomerOrderDetail));
         }
         public static class UserSession
         {

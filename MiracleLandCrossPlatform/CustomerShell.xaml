@@ -36,6 +36,7 @@
        
     </TabBar>
     <ShellContent Route="ProductDetail" ContentTemplate="{DataTemplate local:ProductDetail}"/>
+    <ShellContent Route="CustomerOrderDetail" ContentTemplate="{DataTemplate local:CustomerOrderDetail}"/>
 
 
 </Shell>
