@@ -51,7 +51,7 @@ public partial class AdminNewProduct : ContentPage
             }
             var busproduct = new BUSproduct();
             busproduct.AddNewProduct(ProductName.Text,price,quantity,ProductInfo.Text,imageUrl);
-            await Application.Current.MainPage.DisplayAlert("Error", "New product is now ready to serve.", "OK");
+            await Application.Current.MainPage.DisplayAlert("Success", "New product is now ready to serve.", "OK");
             App.Current.MainPage = new AdminShell(session);
         }
         if (imagepath == null)
