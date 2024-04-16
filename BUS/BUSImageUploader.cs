@@ -12,6 +12,8 @@ namespace BUS
 
         public ImgbbUploader()
         {
+            //THIS API KEY MUST BE CHANGE TO YOUR OWN API KEY FROM IMGBB.COM,IT'S BEEN EXPIRED ALREADY
+            //KAGAMINE HAKU
             this.apiKey = "fe914c5bf5d6784ffb21c53ad548239d";
         }
 
