@@ -136,25 +136,25 @@ namespace DAL
             }
         }
 
-        public bool RemoveProduct(int id)
-        {
-            try
-            {
-                using (var dbContext = new TsmgContext())
-                {
-                    var product = dbContext.Products.Find(id);
-                    if (product == null) return false;
-                    dbContext.Products.Remove(product);
-                    dbContext.SaveChanges();
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.InnerException.ToString());
-                return false;
-            }
-        }
+        //public bool RemoveProduct(int id)
+        //{
+        //    try
+        //    {
+        //        using (var dbContext = new TsmgContext())
+        //        {
+        //            var product = dbContext.Products.Find(id);
+        //            if (product == null) return false;
+        //            dbContext.Products.Remove(product);
+        //            dbContext.SaveChanges();
+        //            return true;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex.InnerException.ToString());
+        //        return false;
+        //    }
+        //}
 
         public bool RemoveProductByName(string name)
         {
@@ -164,6 +164,16 @@ namespace DAL
                 {
                     var product = dbContext.Products.FirstOrDefault(u => u.Pname == name);
                     if (product == null) return false;
+
+                    var dalOrderDetail = new DALorderdetail();
+                    bool orderDetailsDeleted = dalOrderDetail.DeleteOrderDetailByPid(product.Pid);
+
+                    if (!orderDetailsDeleted)
+                    {
+                        Console.WriteLine("Failed to delete order details for product.");
+                        return false;
+                    }
+
                     dbContext.Products.Remove(product);
                     dbContext.SaveChanges();
                     return true;
@@ -171,7 +181,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.InnerException.ToString());
+                Console.WriteLine(ex.InnerException?.ToString() ?? ex.Message);
                 return false;
             }
         }
