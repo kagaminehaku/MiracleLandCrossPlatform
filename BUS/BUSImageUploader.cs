@@ -14,7 +14,7 @@ namespace BUS
         {
             //THIS API KEY MUST BE CHANGE TO YOUR OWN API KEY FROM IMGBB.COM,IT'S BEEN EXPIRED ALREADY
             //KAGAMINE HAKU
-            this.apiKey = "fe914c5bf5d6784ffb21c53ad548239d";
+            this.apiKey = "a05c5654a3e8f2ca3ec0615be3937b5d";
         }
 
         public async Task<string> UploadImageAsync(string imagePath)

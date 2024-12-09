@@ -29,7 +29,7 @@ public partial class TsmgContext : DbContext
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
     //THIS IS DANGEROUS,USING CONNECTION STRING HERE FOR PROTOTYPE ONLY,DO NOT USE IN PRODUCTION OR SOMETHING IMPORTANT
     //KAGAMINEHAKU HAS WARNING YOU !!!
-     => optionsBuilder.UseSqlServer("Server=.;Database=TSMG;user id=sa;password=17102003;Trusted_Connection=True;TrustServerCertificate=True;");
+     => optionsBuilder.UseSqlServer("Server=kagaminehaku.softether.net,25564;Database=TSMG;user id=sa;password=17102003;TrustServerCertificate=True;");
     //   => optionsBuilder.UseSqlServer("Server="YOUR SQLSERVER IP";Database=TSMG;user id="YOUR USN";password="YOUR PWD";TrustServerCertificate=True;");
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
