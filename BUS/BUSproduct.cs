@@ -33,12 +33,12 @@ namespace BUS
             return dalproduct.UpdateProduct(id, newpname, newpprice, newpquantity, newpinfo, newpimg);
         }
 
-        public bool RemoveProduct(int id, string imagepath)
-        {
-            File.Delete(imagepath);
-            var dalproduct = new DALproduct();
-            return dalproduct.RemoveProduct(id);
-        }
+        //public bool RemoveProduct(int id, string imagepath)
+        //{
+        //    File.Delete(imagepath);
+        //    var dalproduct = new DALproduct();
+        //    return dalproduct.RemoveProduct(id);
+        //}
 
         public bool RemoveProductByName(string name)
         {
